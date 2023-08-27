@@ -229,11 +229,11 @@ def main(args):
     unloading_data = build_dataset_unsup(args=args)
     # create the training and valiation set
     if args.label_pro == '10':
-        i_list = '../Semi-supervised-Crowd-Counting-via-Density-Agency/label_list/sha-10.txt'
+        i_list = 'label_list/sha-10.txt'
     elif args.label_pro == '5':
-        i_list = '../Semi-supervised-Crowd-Counting-via-Density-Agency/label_list/sha-5.txt'
+        i_list = 'label_list/sha-5.txt'
     elif args.label_pro == '40':
-        i_list = '../Semi-supervised-Crowd-Counting-via-Density-Agency/label_list/sha-40.txt'
+        i_list = 'label_list/sha-40.txt'
 
     train_set, val_set = loading_data(args.data_root, i_list)
     untrain_set, _ = unloading_data(args.data_root, i_list)
@@ -412,15 +412,15 @@ if __name__ == '__main__':
     ])
 
     if args.label_pro == '10':
-        uncertain_folder = 'part_A/uncertain_data_10/'
+        uncertain_folder = '../CrowdCounting-P2PNet/part_A/uncertain_data_10/'
     elif args.label_pro == '5':
-        uncertain_folder = 'part_A/uncertain_data_5/'
+        uncertain_folder = '../CrowdCounting-P2PNet/part_A/uncertain_data_5/'
     elif args.label_pro == '40':
-        uncertain_folder = 'part_A/uncertain_data_40/'
+        uncertain_folder = '../CrowdCounting-P2PNet/part_A/uncertain_data_40/'
      
     dataset_t_ik = crowd_test(
         imgdir = uncertain_folder,
-        maskdir='part_A/uncertain_label/',
+        maskdir='../CrowdCounting-P2PNet/part_A/uncertain_label/',
         img_trans = img_transform,
         mask_trans = mask_transform
         )
