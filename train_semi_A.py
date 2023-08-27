@@ -91,7 +91,6 @@ def get_args_parser():
     return parser
 
 
-
 def crowd_wasserstein(pt1, pt2, punish_side = 64):
     if len(pt1) == 0 and len(pt2) == 0:
         return 0
@@ -400,7 +399,13 @@ class crowd_test(Dataset):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('P2PNet-confi training and evaluation script', parents=[get_args_parser()])
     args = parser.parse_args()
-    
+
+    if not os.path.exists(args.output_dir):
+        os.makedirs(args.output_dir)
+
+    if not os.path.exists(args.checkpoints_dir):
+        os.makedirs(args.checkpoints_dir)
+
     img_transform = standard_transforms.Compose([
         standard_transforms.ToTensor(), 
         standard_transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
@@ -412,15 +417,15 @@ if __name__ == '__main__':
     ])
 
     if args.label_pro == '10':
-        uncertain_folder = '../CrowdCounting-P2PNet/part_A/uncertain_data_10/'
+        uncertain_folder = 'part_A/uncertain_data_10/'
     elif args.label_pro == '5':
-        uncertain_folder = '../CrowdCounting-P2PNet/part_A/uncertain_data_5/'
+        uncertain_folder = 'part_A/uncertain_data_5/'
     elif args.label_pro == '40':
-        uncertain_folder = '../CrowdCounting-P2PNet/part_A/uncertain_data_40/'
+        uncertain_folder = 'part_A/uncertain_data_40/'
      
     dataset_t_ik = crowd_test(
         imgdir = uncertain_folder,
-        maskdir='../CrowdCounting-P2PNet/part_A/uncertain_label/',
+        maskdir='part_A/uncertain_label/',
         img_trans = img_transform,
         mask_trans = mask_transform
         )
