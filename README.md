@@ -62,4 +62,5 @@ python train_semi_A.py --data_root ../CrowdCounting-P2PNet/part_A/  \\
    --end_pro 0.4  
 ```
 
+end_pro here is the confidence threshold (1-uncertainty)
 
