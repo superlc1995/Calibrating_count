@@ -44,7 +44,7 @@ python patch_gen_A.py # crop whole images into little patches.
 python patch_move.py # move cropped patches into corresponding folders
 
 
-### 2. Training and evaluating on ShanghaiTech Part-A ###
+### 2. Training and evaluating on 10% labeled ShanghaiTech Part-A ###
 ```
 python train_semi_A.py --data_root ../CrowdCounting-P2PNet/part_A/  \\
    --dataset_file SHHA_partial  \\
@@ -59,8 +59,10 @@ python train_semi_A.py --data_root ../CrowdCounting-P2PNet/part_A/  \\
   --eval_freq 1  \\
    --gpu_id 1  \\
    --un_weight 0.3  \\
-   --end_pro 0.4  
+   --end_pro 0.4  \\
+    --label_pro 10 
 ```
 
 end_pro here is the confidence threshold (1-uncertainty)
+label_pro is the proportion of labeled data (10 for 10%. 5 for 5%, 40 for 40%)
 
