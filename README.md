@@ -45,22 +45,21 @@ python patch_move.py # move cropped patches into corresponding folders
 
 
 ### 2. Training and evaluating on ShanghaiTech Part-A ###
-
-python train_semi_A.py --data_root ../CrowdCounting-P2PNet/part_A/  \
-   --dataset_file SHHA_partial  \
-   --epochs 1000  \
-   --lr_drop 3500   \
-  --output_dir ./res/SHHA/logs  \
-   --checkpoints_dir ./res/SHHA/weights   \
-  --tensorboard_dir ./res/SHHA/logs   \
-  --lr 0.0001   \
-  --lr_backbone 0.00001  \
-   --batch_size 8   \
-  --eval_freq 1  \
-   --gpu_id 1  \
-   --un_weight 0.3  \
+```
+python train_semi_A.py --data_root ../CrowdCounting-P2PNet/part_A/  \\
+   --dataset_file SHHA_partial  \\
+   --epochs 1000  \\
+   --lr_drop 3500   \\
+  --output_dir ./res/SHHA/logs  \\
+   --checkpoints_dir ./res/SHHA/weights   \\
+  --tensorboard_dir ./res/SHHA/logs   \\
+  --lr 0.0001   \\
+  --lr_backbone 0.00001  \\
+   --batch_size 8   \\
+  --eval_freq 1  \\
+   --gpu_id 1  \\
+   --un_weight 0.3  \\
    --end_pro 0.4  
-
-
+```
 
 
