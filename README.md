@@ -68,3 +68,4 @@ python train_semi_A.py --data_root ../CrowdCounting-P2PNet/part_A/  \
 end_pro here is the confidence threshold (1-uncertainty)
 label_pro is the proportion of labeled data (10 for 10%. 5 for 5%, 40 for 40%)
 
+The pretrained VGG weights can be downloaded from https://download.pytorch.org/models/vgg16_bn-6c64b313.pth
